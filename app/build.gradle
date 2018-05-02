@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileVersionSdk
+    defaultConfig {
+        applicationId rootProject.ext.app.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.app.versionCode
+        versionName rootProject.ext.app.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.android.supportLib"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "com.android.support:recyclerview-v7:$rootProject.ext.android.supportLib"
+    implementation "com.android.support:design:$rootProject.ext.android.supportLib"
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+    // glide
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    // rxjava
+    implementation "io.reactivex.rxjava2:rxjava:2.1.13"
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    //注意：使用rxjava2,引入adapter-rxjava2;若用rxjava,引入adapter-rxjava;(掉坑记录)
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    // base recyclerview
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.33'
+    // butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+}

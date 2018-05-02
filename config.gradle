@@ -1,0 +1,13 @@
+ext {
+    android = [
+            compileVersionSdk: 26,
+            minSdkVersion    : 14,
+            targetSdkVersion : 26,
+            supportLib       : "27.1.1"
+    ]
+    app = [
+            applicationId: "me.crazystone.study.wanandroid",
+            versionCode  : 1,
+            versionName  : "1.0.0"
+    ]
+}

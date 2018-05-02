@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LifeHelper</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="author_name">CrazyStone</string>
+    <string name="author_blog">http://crazystone.coding.me/</string>
+    <string name="accounting">记账</string>
+    <string name="running">跑步</string>
+    <string name="default_string">---</string>
+
+</resources>
