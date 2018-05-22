@@ -5,4 +5,6 @@ package me.crazystone.study.wanandroid.biz.article.list
  */
 interface IArticlePresenter {
     fun requestData(page: Int)
+
+    fun getBanner()
 }

@@ -33,7 +33,7 @@ class ArticleFragment : BaseFragment(), IArticleView, SwipeRefreshLayout.OnRefre
     var swipe_layout: SwipeRefreshLayout? = null
     var page: Int = 0
     var contentAdapter: ArticleAdapter? = null
-    var state: String = Constants.PullRefreshState.IDEL
+    var state: String = Constants.PullRefreshState.IDLE
     var float_top_back: FloatingActionButton? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -67,20 +67,20 @@ class ArticleFragment : BaseFragment(), IArticleView, SwipeRefreshLayout.OnRefre
         presenter?.requestData(page)
     }
 
-    fun refreshArticle() {
+    private fun refreshArticle() {
         state = Constants.PullRefreshState.REFRESH
         page = 0
         requestArticle()
     }
 
-    fun loadMoreArticle() {
+    private fun loadMoreArticle() {
         state = Constants.PullRefreshState.LOAD_MORE
         ++page
         requestArticle()
     }
 
     override fun inflateRecyclerView(datas: List<ArticleDetailEntity>) {
-        if (state.equals(Constants.PullRefreshState.IDEL)) {
+        if (state.equals(Constants.PullRefreshState.IDLE)) {
             return
         } else if (state.equals(Constants.PullRefreshState.REFRESH)) {
             if (swipe_layout?.isRefreshing!!) {
@@ -109,8 +109,7 @@ class ArticleFragment : BaseFragment(), IArticleView, SwipeRefreshLayout.OnRefre
 
     override fun onClick(v: View?) {
         if (v?.id == R.id.article_float_back_top) {
-            recycler_view?.scrollToPosition(0)
-//            recycler_view?.smoothScrollToPosition(0)
+            recycler_view?.smoothScrollToPosition(0)
         }
     }
 

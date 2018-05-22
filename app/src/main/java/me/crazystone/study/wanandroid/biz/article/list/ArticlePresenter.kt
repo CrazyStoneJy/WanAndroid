@@ -11,11 +11,20 @@ import me.crazystone.study.wanandroid.network.NetHelper
  * Created by crazy_stone on 18-4-20.
  */
 class ArticlePresenter(var context: Context?, var ui: IArticleView) : BasePresenter(context, ui), IArticlePresenter {
+    override fun getBanner() {
+//        NetHelper.requests(NetHelper.get().getBanner(),})
+//
+//        val textview: TextView = TextView(context)
+//        textview.setOnClickListener({ v ->
+//
+//        })
+
+    }
 
     var TAG = ArticlePresenter::class.java.simpleName
 
     override fun requestData(page: Int) {
-        NetHelper.init().getData(page)
+        NetHelper.get().getData(page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->

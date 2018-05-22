@@ -11,7 +11,7 @@ object Constants {
     object PullRefreshState {
         const val REFRESH: String = "refresh"
         const val LOAD_MORE: String = "load_more"
-        const val IDEL: String = "idel"
+        const val IDLE: String = "idle"
     }
 
 

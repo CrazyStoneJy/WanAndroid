@@ -1,4 +1,4 @@
-package me.crazystone.study.wanandroid.entity
+package me.crazystone.study.wanandroid.entity.base
 
 /**
  * Created by crazy_stone on 18-4-28.
